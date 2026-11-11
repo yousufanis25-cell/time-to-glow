@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Time To Glow by Yousuf. Learn piano, Arduino, automobiles, science, critical thinking and more.">
+<title>TIME TO GLOW | Learn • Explore • Grow</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090909;
+  --card: #141414;
+  --gold: #e7b85c;
+  --gold2: #ffdc91;
+  --text: #f5f1e9;
+  --muted: #aaa49a;
+}
+* {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+}
+a {text-decoration:none;color:inherit}
+.container {width:min(1120px,90%);margin:auto}
+header {
+  position:sticky;top:0;z-index:10;
+  background:rgba(9,9,9,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #29231a;
+}
+nav {
+  height:75px;display:flex;
+  justify-content:space-between;align-items:center;
+}
+.logo {
+  font-size:23px;font-weight:800;
+  letter-spacing:2px;color:var(--gold);
+}
+.logo span {color:white}
+.navlinks {display:flex;gap:25px;align-items:center}
+.navlinks a {font-size:13px;color:#ccc}
+.navlinks a:hover {color:var(--gold)}
+.menu-btn {
+  display:none;background:none;border:0;
+  color:white;font-size:26px;cursor:pointer;
+}
+.hero {
+  min-height:660px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:
+  radial-gradient(ellipse at 80% 45%,#49341638,transparent 48%),
+  linear-gradient(120deg,#090909,#11100e);
+}
+.hero:before {
+  content:"";position:absolute;
+  width:350px;height:350px;border-radius:50%;
+  border:1px solid #e7b85c20;
+  right:5%;top:18%;
+  box-shadow:0 0 100px #e7b85c12;
+}
+.hero-content {position:relative;z-index:1;padding:90px 0}
+.tag {
+  display:inline-block;color:var(--gold);
+  border:1px solid #80612d;padding:7px 16px;
+  border-radius:30px;font-size:12px;
+  letter-spacing:2px;margin-bottom:25px;
+}
+h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,8vw,90px);
+  line-height:1.08;max-width:800px;
+}
+h1 span,.gold {color:var(--gold)}
+.hero p {
+  max-width:570px;color:var(--muted);
+  margin:25px 0 32px;font-size:17px;
+}
+.btn {
+  display:inline-block;padding:13px 25px;
+  border-radius:5px;font-weight:700;
+  background:var(--gold);color:#17110a;
+  transition:.25s;
+}
+.btn:hover {background:var(--gold2);transform:translateY(-3px)}
+.btn-outline {
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);margin-left:10px;
+}
+section {padding:95px 0}
+.section-label {
+  color:var(--gold);font-size:12px;
+  letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,48px);
+  line-height:1.2;margin-bottom:15px;
+}
+.section-intro {
+  color:var(--muted);max-width:650px;
+  margin-bottom:45px;
+}
+.about {
+  background:#10100f;
+}
+.about-grid {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+}
+.about-panel {
+  border:1px solid #40321c;
+  background:linear-gradient(145deg,#211b11,#101010);
+  padding:40px;border-radius:12px;
+}
+.about-panel h3 {
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  font-size:30px;margin-bottom:15px;
+}
+.about-panel p {color:#c2bdb3}
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.skill-card {
+  background:var(--card);
+  border:1px solid #292929;
+  border-radius:10px;padding:27px;
+  transition:.3s;
+}
+.skill-card:hover {
+  border-color:var(--gold);
+  transform:translateY(-6px);
+  background:#1c1913;
+}
+.skill-icon {font-size:35px;margin-bottom:17px}
+.skill-card h3 {font-size:19px;margin-bottom:9px}
+.skill-card p {font-size:14px;color:var(--muted)}
+.skill-card .number {
+  font-size:11px;letter-spacing:2px;
+  color:var(--gold);margin-bottom:12px;
+}
+.quote-section {
+  background:linear-gradient(120deg,#211a0e,#0d0d0d);
+  text-align:center;
+}
+.quote {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(27px,4vw,43px);
+  max-width:850px;margin:0 auto 20px;
+}
+.quote-author {color:var(--gold);letter-spacing:2px}
+.values-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.value {
+  padding:25px;border-left:2px solid var(--gold);
+  background:#121212;
+}
+.value h3 {margin-bottom:8px}
+.value p {color:var(--muted);font-size:14px}
+.contact {
+  text-align:center;
+  background:radial-gradient(ellipse at center,#37271240,transparent 65%);
+}
+.contact p {color:var(--muted);margin:15px auto 30px;max-width:550px}
+.socials {
+  display:flex;justify-content:center;
+  flex-wrap:wrap;gap:15px;
+}
+.socials a {
+  border:1px solid #65502c;
+  padding:12px 22px;border-radius:5px;
+  transition:.2s;
+}
+.socials a:hover {background:#302413;color:var(--gold)}
+footer {
+  border-top:1px solid #292929;
+  padding:28px 0;text-align:center;
+  color:#777;font-size:13px;
+}
+footer span {color:var(--gold)}
+@media(max-width:750px) {
+  .menu-btn {display:block}
+  .navlinks {
+    display:none;position:absolute;
+    top:75px;left:0;width:100%;
+    background:#111;padding:25px;
+    flex-direction:column;
+  }
+  .navlinks.show {display:flex}
+  .about-grid {grid-template-columns:1fr;gap:25px}
+  .skills-grid {grid-template-columns:1fr 1fr}
+  .values-grid {grid-template-columns:1fr}
+  .hero {min-height:570px}
+}
+@media(max-width:450px) {
+  .skills-grid {grid-template-columns:1fr}
+  .btn {margin:5px 0;display:block;text-align:center}
+  .btn-outline {margin-left:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">TIME <span>TO</span> GLOW.</a>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#learning" onclick="closeMenu()">What I Teach</a>
+        <a href="#values" onclick="closeMenu()">My Philosophy</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="tag">A WORLD OF KNOWLEDGE & CURIOSITY</div>
+    <h1>It's Your Time<br>To <span>Glow.</span></h1>
+    <p>
+      Learn something new. Understand how things work.
+      Question the ordinary. Develop practical skills.
+      Explore science, life, and ideas with Yousuf.
+    </p>
+    <a class="btn" href="#learning">Explore Learning ↓</a>
+    <a class="btn btn-outline" href="#about">Meet Yousuf</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-label">THE PERSON BEHIND THE IDEA</div>
+      <h2 class="section-title">Hello, I'm <span class="gold">Yousuf.</span></h2>
+      <p class="section-intro">
+        I believe learning should go beyond books and classrooms.
+        It should be practical, interesting, creative and connected
+        to real life.
+      </p>
+      <p style="color:#c2bdb3">
+        Through Time To Glow, I want to share knowledge,
+        teach useful skills, discuss meaningful ideas and
+        encourage people to think independently.
+        Whether it's understanding an Arduino circuit,
+        learning a piano melody or exploring the universe,
+        every subject has something fascinating to teach us.
+      </p>
+    </div>
+    <div class="about-panel">
+      <h3>My Mission</h3>
+      <p>
+        To make knowledge accessible, encourage curiosity,
+        develop problem-solving abilities and inspire people
+        to become lifelong learners.
+      </p>
+      <br>
+      <h3>My Belief</h3>
+      <p>
+        You don't have to know everything.
+        You just have to stay curious enough to keep learning.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="container">
+    <div class="section-label">EXPLORE YOUR INTERESTS</div>
+    <h2 class="section-title">What Can You <span class="gold">Learn?</span></h2>
+    <p class="section-intro">
+      A collection of subjects, skills and discussions
+      that connect knowledge with the real world.
+    </p>
+
+    <div class="skills-grid">
+
+      <article class="skill-card">
+        <div class="number">01 / MUSIC</div>
+        <div class="skill-icon">🎹</div>
+        <h3>Piano & Music</h3>
+        <p>Explore piano basics, notes, melodies, music theory
+        and the art of creating music.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">02 / TECHNOLOGY</div>
+        <div class="skill-icon">🔌</div>
+        <h3>Arduino & Electronics</h3>
+        <p>Discover microcontrollers, circuits, sensors,
+        components and creative electronics projects.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">03 / ENGINEERING</div>
+        <div class="skill-icon">🚘</div>
+        <h3>Automobiles</h3>
+        <p>Understand engines, vehicle systems, mechanics,
+        maintenance concepts and automotive technology.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">04 / THINKING</div>
+        <div class="skill-icon">🧠</div>
+        <h3>Problem Solving</h3>
+        <p>Develop logical thinking, creativity,
+        decision-making and analytical skills.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">05 / DISCOVERY</div>
+        <div class="skill-icon">🔬</div>
+        <h3>Science & Universe</h3>
+        <p>Explore physics, chemistry, biology,
+        astronomy and the wonders of nature.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">06 / FAITH</div>
+        <div class="skill-icon">📖</div>
+        <h3>Religious Discussions</h3>
+        <p>Explore faith, values, teachings, ethics,
+        spirituality and thoughtful religious discussions.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">07 / CONVERSATIONS</div>
+        <div class="skill-icon">🌌</div>
+        <h3>Deep Talks</h3>
+        <p>Discuss life, existence, human behaviour,
+        purpose, philosophy and meaningful questions.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">08 / REAL LIFE</div>
+        <div class="skill-icon">🛠️</div>
+        <h3>Practical Knowledge</h3>
+        <p>Learn everyday skills, understand real-world
+        systems and explore how things work.</p>
+      </article>
+
+      <article class="skill-card">
+        <div class="number">09 / MORE TO COME</div>
+        <div class="skill-icon">✨</div>
+        <h3>And Much More</h3>
+        <p>New ideas, interesting topics and useful skills.
+        Learning never has to stop.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="container">
+    <div class="quote">
+      "The more you learn, the more you realize
+      how much there is to discover."
+    </div>
+    <div class="quote-author">— TIME TO GLOW</div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="container">
+    <div class="section-label">WHAT WE STAND FOR</div>
+    <h2 class="section-title">Beyond Just <span class="gold">Learning.</span></h2>
+    <p class="section-intro">
+      Knowledge is powerful when we understand it
+      and apply it meaningfully.
+    </p>
+    <div class="values-grid">
+      <div class="value">
+        <h3>Curiosity</h3>
+        <p>Never stop asking questions or exploring new ideas.</p>
+      </div>
+      <div class="value">
+        <h3>Practical Thinking</h3>
+        <p>Connect theory with real-life applications and experiences.</p>
+      </div>
+      <div class="value">
+        <h3>Open Discussions</h3>
+        <p>Respect different perspectives and learn through meaningful conversations.</p>
+      </div>
+      <div class="value">
+        <h3>Creativity</h3>
+        <p>Experiment, imagine and find new ways to solve problems.</p>
+      </div>
+      <div class="value">
+        <h3>Growth</h3>
+        <p>Improve your understanding and skills one step at a time.</p>
+      </div>
+      <div class="value">
+        <h3>Knowledge</h3>
+        <p>Explore the world with an open mind and a desire to understand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">LET'S CONNECT</div>
+    <h2 class="section-title">Let's <span class="gold">Learn Together.</span></h2>
+    <p>
+      Have a question, an interesting idea or a topic
+      you'd like to explore? Follow my journey and
+      get in touch.
+    </p>
+    <div class="socials">
+      <a href="https://www.instagram.com/yuzuf_bhai/"
+         target="_blank" rel="noopener noreferrer">
+         📸 Instagram
+      </a>
+      <a id="whatsappLink" href="#"
+         target="_blank" rel="noopener noreferrer">
+         💬 WhatsApp
+      </a>
+    </div>
+    <p style="font-size:12px;margin-top:22px">
+      Instagram: @yuzuf_bhai
+    </p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> <span>TIME TO GLOW</span> · Created with curiosity by Yousuf.
+    <br>Learn · Explore · Understand · Grow.
+  </div>
+</footer>
+
+<script>
+// Replace this with a guardian-approved public contact number.
+// International format, digits only, without the + sign.
+const WHATSAPP_NUMBER = "92XXXXXXXXXX";
+
+const whatsapp = document.getElementById("whatsappLink");
+
+if (/^92\d{10}$/.test(WHATSAPP_NUMBER)) {
+  whatsapp.href = "https://wa.me/" + WHATSAPP_NUMBER;
+} else {
+  whatsapp.style.display = "none";
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function toggleMenu() {
+  document.getElementById("navlinks").classList.toggle("show");
+}
+
+function closeMenu() {
+  document.getElementById("navlinks").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
